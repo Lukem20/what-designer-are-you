@@ -1,9 +1,8 @@
 const setSize = (container, camera, renderer) => {
     camera.aspect = container.clientWidth / container.clientHeight;
     camera.updateProjectionMatrix();
-
     renderer.setSize(container.clientWidth, container.clientHeight);
-    renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 };
 
 class Resizer {
@@ -17,9 +16,32 @@ class Resizer {
             // Add custom behavior on resize
             this.onResize();
         });
+
+        // Allow user to enter and exit fullscreen
+        window.addEventListener('dblclick', () => {
+            const fullscreenElement = document.fullscreenElement || document.webkitFullscreenElement;
+            if (!fullscreenElement) {
+                if(container.requestFullscreen) {
+                    container.requestFullscreen();
+                }
+                else if (container.webkitRequestFullscreen) {
+                    container.webkitRequestFullscreen();
+                }
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                    console.log('leave fullscreen');
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                    console.log('leave fullscreen');
+                }
+            }
+        });
     }
 
-    onResize() {}
+    onResize() {
+
+    }
 }
 
 export { Resizer };
