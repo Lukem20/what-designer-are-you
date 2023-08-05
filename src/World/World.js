@@ -1,4 +1,4 @@
-// Components\
+// Components
 import { loadBirds } from './components/Birds/birds.js';
 import { createCamera } from './components/camera.js';
 //import { createSphere } from './components/sphere.js';
@@ -15,6 +15,7 @@ import { createControls } from './systems/controls.js';
 import { createRenderer } from './systems/renderer.js';
 import { Resizer } from './systems/Resizer.js';
 import { Loop } from './systems/Loop.js'
+import { AxesHelper } from 'three';
 
 let camera;
 let controls;
@@ -31,8 +32,8 @@ class World {
         loop = new Loop(camera, scene, renderer);
         container.append(renderer.domElement);
 
-        const axesHelper = createAxesHelper();
-        const gridHelper = createGridHelper();
+        //const axesHelper = createAxesHelper();
+        //const gridHelper = createGridHelper();
 
         //const sphere = createSphere();
         const cube = createCube();
@@ -50,7 +51,8 @@ class World {
             this.render();
         });
 
-        scene.add(cube, sphereMeshGroup, mainLight, ambientLight, axesHelper, gridHelper, train);
+        scene.add(cube, sphereMeshGroup, mainLight, ambientLight, train);
+        //scene.add(axesHelper, gridHelper);
 
         cube.position.x = -8;
         train.position.x = 8;

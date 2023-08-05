@@ -2,12 +2,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Public Sans";
 }
 
 body,
 html {
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 #scene-container {
