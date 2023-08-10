@@ -8,7 +8,7 @@ async function main() {
     //world.render() 
 
     // Complete async loading
-    await world.init();
+    // await world.init();
     
     // Start animation loop (produce a stream of frames)
     world.start();
