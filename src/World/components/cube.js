@@ -3,14 +3,30 @@ import {
     MeshStandardMaterial, 
     Mesh, 
     MathUtils, 
-    TextureLoader 
+    TextureLoader,
+    LoadingManager 
 } from 'three';
-import { createLoadingManager } from './loadingManager';
 
 function createCube () {
     function createMaterial () {
+
+        // Create loading manager to manage loading textures.
+        const loadingManager = new LoadingManager();
+        loadingManager.onStart = () => {
+            console.log('on Start');
+        }
+        loadingManager.onLoad = () => {
+            console.log('on Load');
+        }
+        loadingManager.onProgress = () => {
+            console.log('on Progress');
+        }
+        loadingManager.onError = () => {
+            console.log('on Error');
+        }
+
         // Create and texture loader and load the texture
-        const textureLoader = new TextureLoader();
+        const textureLoader = new TextureLoader(loadingManager);
         const textureBaseColor = textureLoader.load('src/World/assets/textures/woodendoor/color.jpg');
         const textureNormalMap = textureLoader.load('src/World/assets/textures/woodendoor/normal.jpg');
         const textureHeightMap = textureLoader.load('src/World/assets/textures/woodendoor/height.jpg');
