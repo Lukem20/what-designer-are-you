@@ -1,12 +1,13 @@
 // Components
 import { loadBirds } from './components/Birds/birds.js';
 import { createCamera } from './components/camera.js';
-//import { createSphere } from './components/sphere.js';
+import { createSphere } from './components/sphere.js';
 import { createCube } from './components/cube.js';
 import { createMeshGroup } from './components/meshGroup.js';
 import { createLights } from './components/lights.js';
 import { createScene } from './components/scene.js';
 import { Train } from './components/Train/Train.js';
+import { createGUI } from './components/lilgui.js'
 // Helpers
 import { createAxesHelper } from './components/helpers.js';
 import { createGridHelper } from './components/helpers.js';
@@ -15,7 +16,6 @@ import { createControls } from './systems/controls.js';
 import { createRenderer } from './systems/renderer.js';
 import { Resizer } from './systems/Resizer.js';
 import { Loop } from './systems/Loop.js'
-import { AxesHelper } from 'three';
 
 let camera;
 let controls;
@@ -35,13 +35,13 @@ class World {
         //const axesHelper = createAxesHelper();
         //const gridHelper = createGridHelper();
 
-        //const sphere = createSphere();
+        const sphere = createSphere();
         const cube = createCube();
         const sphereMeshGroup = createMeshGroup();
         const train = new Train();
         const { mainLight, ambientLight } = createLights();
 
-        //loop.updatables.push(sphere);
+        loop.updatables.push(sphere);
         loop.updatables.push(cube);
         loop.updatables.push(controls);
         loop.updatables.push(sphereMeshGroup);
@@ -52,7 +52,9 @@ class World {
         });
 
         scene.add(cube, sphereMeshGroup, mainLight, ambientLight, train);
-        //scene.add(axesHelper, gridHelper);
+        //scene.add(sphere, axesHelper, gridHelper);
+
+        const gui = createGUI(cube);
 
         cube.position.x = -8;
         train.position.x = 8;
@@ -66,7 +68,7 @@ class World {
         loop.updatables.push(parrot, flamingo, stork);
 
     }
-    
+
     render() {
         renderer.render(scene, camera);
     }
