@@ -5,17 +5,18 @@ import {
     MathUtils, 
     TextureLoader 
 } from 'three';
+import { createLoadingManager } from './loadingManager';
 
 function createCube () {
     function createMaterial () {
         // Create and texture loader and load the texture
         const textureLoader = new TextureLoader();
-        const textureBaseColor = textureLoader.load('src/World/assets/textures/harshbrick/harshbricks-albedo.png');
-        const textureNormalMap = textureLoader.load('src/World/assets/textures/harshbrick/harshbricks-normal.png');
-        const textureHeightMap = textureLoader.load('src/World/assets/textures/harshbrick/harshbricks-height5-16.png');
-        const textureRoughessMap = textureLoader.load('src/World/assets/textures/harshbrick/harshbricks-roughness.png');
-        const textureAmbientOcclusionMap = textureLoader.load('src/World/assets/textures/harshbrick/harshbricks-ao2.png');
-        const textureMetallic = textureLoader.load('src/World/assets/textures/harshbrick/harshbricks-metalness.png');
+        const textureBaseColor = textureLoader.load('src/World/assets/textures/woodendoor/color.jpg');
+        const textureNormalMap = textureLoader.load('src/World/assets/textures/woodendoor/normal.jpg');
+        const textureHeightMap = textureLoader.load('src/World/assets/textures/woodendoor/height.jpg');
+        const textureRoughessMap = textureLoader.load('src/World/assets/textures/woodendoor/roughness.jpg');
+        const textureAmbientOcclusionMap = textureLoader.load('src/World/assets/textures/woodendoor/ambientOcclusion.jpg');
+        const textureMetallic = textureLoader.load('src/World/assets/textures/woodendoor/metalness.jpg');
 
         // Create a material using the loaded texture as a color map.
         const material = new MeshStandardMaterial({ 
@@ -36,8 +37,6 @@ function createCube () {
     const material = createMaterial();
     const cube = new Mesh(geometry, material);
 
-    const clonedCube = cube.clone();
-    clonedCube.position.x  = -8;
 
     cube.rotation.set(-0.5, -0.1, 0.8);
 
