@@ -27,6 +27,16 @@ function createGUI (mesh) {
         });
     gui
         .add(parameters, 'spin');
+    gui
+        .add(mesh.material, 'metalness')
+        .min(0)
+        .max(1)
+        .step(0.0001);
+    gui
+        .add(mesh.material, 'roughness')
+        .min(0)
+        .max(1)
+        .step(0.0001);
 }
 
 export { createGUI }

@@ -19,7 +19,6 @@ function createSphere () {
 
         // Create a material using the loaded texture as a color map.
         const material = new MeshStandardMaterial({ 
-            map: textureBaseColor,
             normalMap: textureNormalMap,
             displacementMap: textureHeightMap,
             displacementScale: 0.05,
@@ -35,6 +34,8 @@ function createSphere () {
     const geometry = new SphereGeometry(2, 64, 32, 0, Math.PI*2, 0, Math.PI);
     const material = createMaterial();
     const sphere = new Mesh(geometry, material);
+
+    sphere.position.z = -3.5;
 
     const radiansPerSecond = MathUtils.degToRad(30);
     sphere.tick = (delta) => {

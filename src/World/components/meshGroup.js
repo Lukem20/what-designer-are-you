@@ -3,17 +3,20 @@ import {
     Group,
     MathUtils,
     Mesh,
-    MeshStandardMaterial,
+    TextureLoader,
+    MeshMatcapMaterial,
 } from 'three'
 
 function createMeshGroup() {
+    // Loading texture for matcap material
+    const textureLoader = new TextureLoader();
+    const matcapTexture = textureLoader.load('src/World/assets/textures/matcaps/8.png')
+
     // Creating a group with a sphere and its clones.
     const group = new Group();
     const geometry = new SphereGeometry(0.3, 14, 10);
-    const material = new MeshStandardMaterial({
-        color: 'indigo',
-        flatShading: true,
-    });
+    const material = new MeshMatcapMaterial();
+    material.matcap = matcapTexture;
     const protoSphere = new Mesh(geometry, material);
 
     group.add(protoSphere);

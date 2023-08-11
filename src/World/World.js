@@ -3,6 +3,8 @@ import { loadBirds } from './components/Birds/birds.js';
 import { createCamera } from './components/camera.js';
 import { createSphere } from './components/sphere.js';
 import { createCube } from './components/cube.js';
+import { createPlane } from './components/plane.js';
+import { createEnvMap } from './components/envMap.js';
 import { createMeshGroup } from './components/meshGroup.js';
 import { createLights } from './components/lights.js';
 import { createScene } from './components/scene.js';
@@ -37,12 +39,15 @@ class World {
 
         const sphere = createSphere();
         const cube = createCube();
+        const plane = createPlane();
+        const envMap = createEnvMap();
         const sphereMeshGroup = createMeshGroup();
         const train = new Train();
         const { mainLight, ambientLight } = createLights();
 
         loop.updatables.push(sphere);
-        loop.updatables.push(cube);
+        //loop.updatables.push(cube);
+        loop.updatables.push(plane)
         loop.updatables.push(controls);
         loop.updatables.push(sphereMeshGroup);
         loop.updatables.push(train);
@@ -51,14 +56,12 @@ class World {
             this.render();
         });
 
-        scene.add(cube, sphereMeshGroup, mainLight, ambientLight, train);
-        //scene.add(sphere, axesHelper, gridHelper);
+        scene.add(sphere, cube, plane, envMap, sphereMeshGroup, mainLight, ambientLight, train);
+        //scene.add(axesHelper, gridHelper);
 
-        const gui = createGUI(cube);
-
-        cube.position.x = -8;
         train.position.x = 8;
-        
+
+        const gui = createGUI(envMap);        
         const resizer = new Resizer(container, camera, renderer);
     }
 

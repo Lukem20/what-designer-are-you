@@ -2,9 +2,9 @@ import { OrthographicCamera } from 'three';
 
 function createOrthographicCamera() {
     const camera = new OrthographicCamera(
-        45, 1, 0.1, 500
+        5, 5, 5, 5, 1, 100
     );
-    camera.position.z = 30;
+    camera.position.z = 10;
 
     return camera;
 }
