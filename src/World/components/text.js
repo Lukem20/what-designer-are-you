@@ -17,7 +17,7 @@ function createText(scene) {
         (font) => {
             const textMaterial = new MeshMatcapMaterial({ matcap: matcapTexture });
             const textGeometry = new TextGeometry(
-                'Luke Moore Portfolio',
+                'Luke \nMoore \nPortfolio',
                 {
                     font,
                     size: 1,
