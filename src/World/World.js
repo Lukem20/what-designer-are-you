@@ -5,14 +5,14 @@ import { createScene } from './components/scene.js';
 // import { createSphere } from './components/sphere.js';
 // import { createCube } from './components/cube.js';
 import { createText } from './components/text.js';
-import { createDonuts } from './components/donuts.js';
+import { createShapes } from './components/shapes.js';
 // import { createPlane } from './components/plane.js';
 // import { createEnvMap } from './components/envMap.js';
 // import { createMeshGroup } from './components/meshGroup.js';
 // import { Train } from './components/Train/Train.js';
 import { loadBirds } from './components/Birds/birds.js';
-// import { createGUI } from './components/lilgui.js'
 // Helpers
+// import { createGUI } from './components/lilgui.js'
 // import { createAxesHelper } from './components/helpers.js';
 // import { createGridHelper } from './components/helpers.js';
 // Systems
@@ -42,7 +42,7 @@ class World {
         // const sphere = createSphere();
         // const cube = createCube();
         const text = createText(scene);
-        const donuts = createDonuts();
+        const shapes = createShapes();
         // const plane = createPlane();
         // const envMap = createEnvMap();
         // const sphereMeshGroup = createMeshGroup();
@@ -53,6 +53,7 @@ class World {
         // //loop.updatables.push(cube);
         // loop.updatables.push(plane)
         loop.updatables.push(controls);
+        loop.updatables.push(shapes);
         // loop.updatables.push(sphereMeshGroup);
         // loop.updatables.push(train);
 
@@ -60,7 +61,7 @@ class World {
             this.render();
         });
 
-        scene.add(donuts, mainLight, ambientLight);
+        scene.add(shapes, mainLight, ambientLight);
         //scene.add(sphere, cube, plane, envMap, sphereMeshGroup, train);
         //scene.add(axesHelper, gridHelper);
 
