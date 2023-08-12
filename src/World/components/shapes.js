@@ -30,7 +30,7 @@ function createShapes() {
         group.add(shape);
     }
 
-    const radiansPerSecond = MathUtils.degToRad(2);
+    const radiansPerSecond = MathUtils.degToRad(0.1);
     group.tick = (delta) => {
         group.rotation.z += radiansPerSecond * delta;
         group.rotation.x += radiansPerSecond * delta;
