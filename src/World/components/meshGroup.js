@@ -34,6 +34,7 @@ function createMeshGroup() {
     }
     // Scales all vectors
     group.scale.multiplyScalar(3);
+    group.position.set(5, -10, 0)
 
     // Rotate group
     const radiansPerSecond = MathUtils.degToRad(10);

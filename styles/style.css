@@ -17,13 +17,3 @@ html {
   left: 0;
   z-index: 1;
 }
-
-h1 {
-  color: white;
-  position: relative;
-  z-index: 2;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 3rem 0rem
-}

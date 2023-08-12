@@ -35,7 +35,7 @@ function createSphere () {
     const material = createMaterial();
     const sphere = new Mesh(geometry, material);
 
-    sphere.position.z = -3.5;
+    sphere.position.set(0, 0, -5);
 
     const radiansPerSecond = MathUtils.degToRad(30);
     sphere.tick = (delta) => {

@@ -59,7 +59,7 @@ function createCube () {
 
 
     cube.rotation.set(-0.5, -0.1, 0.8);
-    cube.position.x = -8;
+    cube.position.x = -9;
 
     const radiansPerSecond = MathUtils.degToRad(30);
     cube.tick = (delta) => {
