@@ -9,11 +9,11 @@ import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry';
 
 function createText(scene) {
     const textureLoader = new TextureLoader();
-    const matcapTexture = textureLoader.load('src/World/assets/textures/matcaps/4.png');
+    const matcapTexture = textureLoader.load('/assets/textures/matcaps/4.png');
     
     const fontLoader = new FontLoader();
     fontLoader.load(
-        '/src/World/assets/fonts/League Spartan_Bold.json',
+        '/assets/fonts/League Spartan_Bold.json',
         (font) => {
             const textMaterial = new MeshMatcapMaterial({ matcap: matcapTexture });
             const textGeometry = new TextGeometry(

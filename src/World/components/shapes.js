@@ -9,7 +9,7 @@ import {
 
 function createShapes() {
     const textureLoader = new TextureLoader();
-    const matcapTexture = textureLoader.load('src/World/assets/textures/matcaps/8.png');
+    const matcapTexture = textureLoader.load('/assets/textures/matcaps/8.png');
     const shapeMaterial = new MeshMatcapMaterial({ matcap: matcapTexture });
     const group = new Group();
 
