@@ -1,16 +1,16 @@
 // Components
+import { createSphere } from './components/sphere.js';
+import { createCube } from './components/cube.js';
+import { createPlane } from './components/plane.js';
+import { createText } from './components/text.js';
+import { createShapes } from './components/shapes.js';
 import { createCamera } from './components/camera.js';
 import { createLights } from './components/lights.js';
 import { createScene } from './components/scene.js';
-// import { createSphere } from './components/sphere.js';
-// import { createCube } from './components/cube.js';
-import { createText } from './components/text.js';
-import { createShapes } from './components/shapes.js';
-// import { createPlane } from './components/plane.js';
 // import { createEnvMap } from './components/envMap.js';
 // import { createMeshGroup } from './components/meshGroup.js';
 // import { Train } from './components/Train/Train.js';
-import { loadBirds } from './components/Birds/birds.js';
+// import { loadBirds } from './components/Birds/birds.js';
 // Helpers
 // import { createGUI } from './components/lilgui.js'
 // import { createAxesHelper } from './components/helpers.js';
@@ -36,45 +36,70 @@ class World {
         loop = new Loop(camera, scene, renderer);
         container.append(renderer.domElement);
 
-        // const axesHelper = createAxesHelper();
-        // const gridHelper = createGridHelper();
 
-        // const sphere = createSphere();
-        // const cube = createCube();
+        const sphere = createSphere();
+        const cube = createCube();
+        const plane = createPlane();
         const text = createText(scene);
         const shapes = createShapes();
-        // const plane = createPlane();
+        const { 
+            mainLight,
+            hemisphereLight,
+            ambientLight,
+            pointLight,
+            rectAreaLight,
+            spotLight,
+            hemisphereLightHelper,
+            pointLightHelper,
+        } = createLights();
         // const envMap = createEnvMap();
         // const sphereMeshGroup = createMeshGroup();
         // const train = new Train();
-        const { mainLight, ambientLight } = createLights();
-
-        // loop.updatables.push(sphere);
-        // //loop.updatables.push(cube);
-        // loop.updatables.push(plane)
+        
+        
+        loop.updatables.push(sphere);
+        loop.updatables.push(cube);
         loop.updatables.push(controls);
         loop.updatables.push(shapes);
         // loop.updatables.push(sphereMeshGroup);
         // loop.updatables.push(train);
 
+
+        // const axesHelper = createAxesHelper();
+        // const gridHelper = createGridHelper();
+
+
         controls.addEventListener('change', () => {
             this.render();
         });
 
-        scene.add(shapes, mainLight, ambientLight);
-        //scene.add(sphere, cube, plane, envMap, sphereMeshGroup, train);
-        //scene.add(axesHelper, gridHelper);
+
+        scene.add(
+            shapes,
+            mainLight,
+            hemisphereLight,
+            // ambientLight,
+            pointLight,
+            rectAreaLight,
+            spotLight,
+            hemisphereLightHelper,
+            pointLightHelper,
+            sphere,
+            cube,
+            plane,
+        );
+        // scene.add(envMap, sphereMeshGroup, train);
+        // scene.add(axesHelper, gridHelper);
 
 
-        //const gui = createGUI(envMap);        
+        //const gui = createGUI(ambientLight);        
         const resizer = new Resizer(container, camera, renderer);
     }
 
     async init() {
-        const { parrot, flamingo, stork } = await loadBirds();
-        scene.add(parrot, flamingo, stork);
-        loop.updatables.push(parrot, flamingo, stork);
-
+        // const { parrot, flamingo, stork } = await loadBirds();
+        // scene.add(parrot, flamingo, stork);
+        // loop.updatables.push(parrot, flamingo, stork);
     }
 
     render() {
