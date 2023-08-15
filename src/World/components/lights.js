@@ -1,36 +1,45 @@
 import { 
     DirectionalLight, 
-    HemisphereLight, 
     AmbientLight, 
     PointLight, 
-    RectAreaLight, 
     SpotLight,
-    HemisphereLightHelper,
     PointLightHelper,
+    SpotLightHelper,
+    CameraHelper,
 } from 'three';
 
 function createLights() {
-    const mainLight = new DirectionalLight(0xffffff, 2);
-    const hemisphereLight = new HemisphereLight(0xff0000, 0x0000ff, 1.5);
-    const ambientLight = new AmbientLight(0xffffff, 0.5);
-    const pointLight = new PointLight(0xff9000, 1);
-    const rectAreaLight = new RectAreaLight(0x4e00ff, 5, 1, 1);
-    const spotLight = new SpotLight(0x78ff00, 0.5, Math.PI * 0.1, 0.25, 1);
-    mainLight.position.set(10, 10, 10);
-    pointLight.position.set(0, -2, -2);
+    const directionalLight = new DirectionalLight(0xffffff, 2);
+    const ambientLight = new AmbientLight(0xffffff, 0.4);
+    const pointLight = new PointLight(0xff9000, 2.2);
+    const spotLight = new SpotLight(0x78ff00, 0.5, 10, Math.PI * 0.1);
+   
+    directionalLight.position.set(10, 10, 10);
+    directionalLight.castShadow = true;
+    directionalLight.shadow.mapSize.width = 1024;
+    directionalLight.shadow.mapSize.height = 1024;
+    directionalLight.shadow.camera.far = 30;
+    spotLight.castShadow = true;
+    spotLight.position.set(8, 3, 5);
+    pointLight.castShadow = true;
+    pointLight.position.set(0, -2, 2);
 
-    const hemisphereLightHelper = new HemisphereLightHelper(hemisphereLight, 1);
-    const pointLightHelper = new PointLightHelper(pointLight, 1);
+    directionalLight.castShadow = false;
+    spotLight.castShadow = false;
+    pointLight.castShadow = false;
+
+    const pointLightHelper = new PointLightHelper(pointLight, 0.5);
+    const spotLightHelper = new SpotLightHelper(spotLight)
+    const directionalLightCameraHelper = new CameraHelper(directionalLight.shadow.camera);
 
     return { 
-        mainLight, 
-        hemisphereLight, 
+        directionalLight, 
         ambientLight, 
         pointLight, 
-        rectAreaLight,
         spotLight,
-        hemisphereLightHelper,
         pointLightHelper,
+        spotLightHelper,
+        directionalLightCameraHelper,
     };
 }
 

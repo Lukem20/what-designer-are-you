@@ -10,7 +10,6 @@ function createSphere () {
     function createMaterial () {
         // Create and texture loader and load the texture
         const textureLoader = new TextureLoader();
-        const textureBaseColor = textureLoader.load('/assets/textures/planetsurface/planet-surface-albedo.png');
         const textureNormalMap = textureLoader.load('/assets/textures/planetsurface/planet-surface-normal-dx.png');
         const textureHeightMap = textureLoader.load('/assets/textures/planetsurface/planet-surface-height.png');
         const textureRoughessMap = textureLoader.load('/assets/textures/planetsurface/planet-surface-roughness.png');
@@ -26,6 +25,7 @@ function createSphere () {
             roughness: 0.5,
             aoMap: textureAmbientOcclusionMap,
             metalnessMap: textureMetallic,
+            
         });
 
         return material;
@@ -35,7 +35,8 @@ function createSphere () {
     const material = createMaterial();
     const sphere = new Mesh(geometry, material);
 
-    sphere.position.set(0, 0, -3);
+    sphere.position.set(4, 0, 3);
+    sphere.castShadow = true;
 
     const radiansPerSecond = MathUtils.degToRad(30);
     sphere.tick = (delta) => {

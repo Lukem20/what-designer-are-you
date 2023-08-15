@@ -1,4 +1,4 @@
-import { WebGLRenderer, LinearSRGBColorSpace, Line } from 'three';
+import { WebGLRenderer, LinearSRGBColorSpace, PCFShadowMap } from 'three';
 
 function createRenderer() {
     const renderer = new WebGLRenderer({ 
@@ -6,6 +6,8 @@ function createRenderer() {
     });
     renderer.outputColorSpace = LinearSRGBColorSpace;
     renderer.physicallyCorrectLights = true;
+    renderer.shadowMap.enabled = false;
+    renderer.shadowMap.type = PCFShadowMap;
     
     return renderer;
 }

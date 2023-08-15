@@ -43,14 +43,13 @@ class World {
         const text = createText(scene);
         const shapes = createShapes();
         const { 
-            mainLight,
-            hemisphereLight,
+            directionalLight,
             ambientLight,
             pointLight,
-            rectAreaLight,
             spotLight,
-            hemisphereLightHelper,
             pointLightHelper,
+            spotLightHelper,
+            directionalLightCameraHelper,
         } = createLights();
         // const envMap = createEnvMap();
         // const sphereMeshGroup = createMeshGroup();
@@ -76,14 +75,13 @@ class World {
 
         scene.add(
             shapes,
-            mainLight,
-            hemisphereLight,
-            // ambientLight,
+            directionalLight,
+            ambientLight,
             pointLight,
-            rectAreaLight,
             spotLight,
-            hemisphereLightHelper,
             pointLightHelper,
+            spotLightHelper,
+            directionalLightCameraHelper,
             sphere,
             cube,
             plane,
