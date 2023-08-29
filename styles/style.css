@@ -123,6 +123,7 @@ span {
 
 .bio > p {
   font-size: 2.4rem;
+  max-width: 70rem;
   width: 62%;
   line-height: 3rem;
 }
