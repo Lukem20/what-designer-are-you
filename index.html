@@ -5,14 +5,80 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Three.js Sandbox</title>
+    <title>What Designer R U?</title>
 
     <link type="text/css" rel="stylesheet" href="styles/style.css">
   </head>
 
   <body>
-    <div id="scene-container"></div>
-    
+    <section>
+      <div id="scene-container">
+        <div id="headline">
+          <h2>Creative developer</h2>
+          <h2 class="yellow">Web designer</h2>
+          <h2>Graphics curious</h2>
+        </div>
+      </div>
+    </section>
+
+    <section id="pageTwo">
+      <div class="portfolio">
+        <h2 class="client"><span class="yellow">Sisi's Barbershop</span> in Santa Rosa, CA</h2>
+        <img class="screenshot" src="/assets/images/Sisis1.png" alt="Barbershop website homepage.">
+        <img class="screenshot" src="/assets/images/Sisis2.png" alt="Barbershop website mobile view.">
+      </div>
+      <div class="portfolio">
+        <img class="screenshot" src="/assets/images/hbc1.png" alt="Wine festival website screenshot.">
+        <img class="screenshot" src="/assets/images/hbc2.png" alt="Wine festival website screenshot with people enjoying wine.">
+        <h2 class="client"><span class="yellow">Healdsburg Crush</span> hosted by The Girls & Boys Club of Sonoma-Marin</h2>
+      </div>
+    </section>
+
+    <section id="pageThree">
+      <div class="contents">
+          <h3>I can <span class="blue">code</span> stuff...</h3>
+          <div id="shape-container"></div>
+          <img src="/assets/images/html-css-js.png" alt="Logos for HTML, CSS, and JS programming languages.">
+          <h3>...and bring my <span class="blue">designs</span> to life.</h3>
+          <div id="tools">
+            <img src="/assets/images/threelogo.png" alt="">
+            <img src="/assets/images/vitelogo.png" alt="">
+          </div>
+        </div>
+    </section>
+
+    <section class="pageCenter">
+      <div class="bio">
+        <p>
+          My interests are in animated <span class="yellow">graphics,</span> interaction
+          <span class="yellow">design,</span> and performant <span class="yellow">web experiences.</span> 
+          I’m inspired by the new and interesting ways 
+          typography is used on the web.
+        </p>
+        <p class="top">
+          I bring a <span class="yellow">ux</span> designer’s mindset to the web <span class="yellow">development</span>
+          process and vice versa, bridging the gap
+          between creatives and engineers.
+        </pcla>
+      </div>
+    </section>
+
+    <section class="pageCenter">
+      <div class="outro">
+        <h2>Let's keep in touch!</h2>
+        <a href="https://www.linkedin.com/in/luke-moore-dev/"><img class="logo" src="/assets/images/linkedInLogo.png" alt="LinkedIn logo"></a>
+      </div>
+      <div class="outro">
+        <h2>My work</h2>
+        <a href="https://github.com/Lukem20"><img class="logo" src="/assets/images/githubLogo.png" alt="Github logo"></a>
+        <a href="https://www.figma.com/file/MqR30ixmxgXrf8nrgOdK9H/What-Kind-of-Designer-are-You%3F?type=design&node-id=0%3A1&mode=design&t=Oko35N97ORVzl2h6-1">
+          <img class="logo" src="/assets/images/figmaLogo.png" alt="Figma logo"></a>
+      </div>
+      <div id="type" class="outro">
+        <img id="colors" src="/assets/images/colors.png" alt="Color palette squares of black, white, gray, and dark cyan.">
+        <p class="blue">Set in Manrope & Ostrich Sans</p>
+      </div>
+    </section>
     <script type="module" src="src/main.js"></script>
   </body>
 </html>

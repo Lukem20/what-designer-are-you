@@ -5,10 +5,9 @@ function createCamera() {
         45, 1, 0.1, 100
     );
 
-    camera.position.x = -2.5;
-    camera.position.y = 5;
+    camera.position.x = 0;
+    camera.position.y = 0;
     camera.position.z = 15;
-
 
     return camera;
 }

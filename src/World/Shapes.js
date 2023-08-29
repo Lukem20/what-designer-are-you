@@ -1,5 +1,5 @@
 // Components
-import { createText } from './components/text.js';
+import { createRotatingShapes } from './components/rotatingShapes';
 import { createCamera } from './components/camera.js';
 import { createScene } from './components/scene.js';
 
@@ -15,7 +15,7 @@ let renderer;
 let scene;
 let loop;
 
-class World {
+class Shapes {
     constructor(container) {
         camera = createCamera();
         renderer = createRenderer();
@@ -24,11 +24,20 @@ class World {
         loop = new Loop(camera, scene, renderer);
         container.append(renderer.domElement);
 
-        const text = createText(scene);
+        controls.autoRotate = true;
+
+        const {
+            sphere,
+            cube
+        } = createRotatingShapes();
+
+        scene.add(sphere, cube);
 
         controls.addEventListener('change', () => {
             this.render();
         });
+
+        loop.updatables.push(controls);
                
         const resizer = new Resizer(container, camera, renderer);
     }
@@ -50,4 +59,4 @@ class World {
     }
 }
     
-export { World };
+export { Shapes };
