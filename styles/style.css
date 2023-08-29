@@ -18,6 +18,17 @@ html {
   overflow-x: hidden;
 }
 
+/* Scrollbar styles */
+body::-webkit-scrollbar {
+	width: 0.75rem;
+}
+body::-webkit-scrollbar-track {
+	background: #1e1e24;
+}
+body::-webkit-scrollbar-thumb {
+	background: #2a6679;
+}
+
 section {
   height: 115vh;
   width: 100vw;
