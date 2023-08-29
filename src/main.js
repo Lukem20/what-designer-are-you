@@ -1,5 +1,7 @@
 import { World } from './World/World.js';
 import { Shapes } from './World/Shapes.js';
+// GSAP
+import gsap from 'gsap';
 
 async function main() {
     const container1 = document.querySelector('#scene-container');
@@ -16,6 +18,15 @@ async function main() {
     // Start animation loop (produce a stream of frames)
     name.start();
     shapes.start();
+
+    const header = document.querySelector('#headline');
+
+        console.log(header);
+        const t1 = gsap.timeline({
+            defaults: { duration: 4 }
+        });
+        t1.delay(1);
+        t1.to(header, { opacity: 1 });
 }
 
 main();
