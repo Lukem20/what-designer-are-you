@@ -9,8 +9,8 @@ import {
 
 function createRotatingShapes () {
     const textureLoader = new TextureLoader();
-    const sphereTexture = textureLoader.load('/assets/textures/matcaps/3.png');
-    const cubeTexture = textureLoader.load('/assets/textures/matcaps/2.png');
+    const sphereTexture = textureLoader.load('/assets/textures/matcaps/2.png');
+    const cubeTexture = textureLoader.load('/assets/textures/matcaps/3.png');
 
     const sphereMaterial = new MeshMatcapMaterial({
         matcap: sphereTexture
