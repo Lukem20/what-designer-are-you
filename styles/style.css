@@ -145,6 +145,10 @@ span {
   justify-content: space-between;
   font-weight: 700;
 }
+.outro > h2 {
+  font-size: 1.5rem;
+  padding-top: 1rem;
+}
 
 #type {
   flex-direction: column;
