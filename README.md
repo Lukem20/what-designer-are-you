@@ -1,10 +1,10 @@
-# threejs-sandbox
-A place to learn and test out threejs concepts and features.
-This project was my first serious step towards learning three.js. The first resource I used was discoverthreejs.com/book/
+# What Designer Are You?
+A question I continue to grapple with to this day!
 
-More recently I am learning Three.js through Bruno Simon's course. I plan on using the concepts practiced here in creating my portfolio and other future projects. 
+This website was created for an introductory assignment for CSUMB's Graphic Identity course that encouraged us to explore and define what type of design we were interested in as a career.
+For me, I wanted to express my identity as a web designer by creating short, one-page website to present with some of the recent libraries I was learning at the time instead of creating yet another slides presentation. 
 
 To see this project, run:
 npm install
 npm run dev
-then open localhost to witness whatever random thing I am currently tinkering with.
+then open localhost
