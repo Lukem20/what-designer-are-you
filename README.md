@@ -5,6 +5,6 @@ This website was created for an introductory assignment for CSUMB's Graphic Iden
 For me, I wanted to express my identity as a web designer by creating short, one-page website to present with some of the recent libraries I was learning at the time instead of creating yet another slides presentation. 
 
 To see this project, run:
-npm install
-npm run dev
-then open localhost
+\n npm install
+\n npm run dev
+\n then open localhost
